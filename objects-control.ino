@@ -40,7 +40,10 @@ uint8_t  palette1[7][3] ={ //7 цветов по RGB
 
 void setup() {
   strip.begin();
+  strip.clear();                          // очистить
   strip.show(); // Устанавливаем все светодиоды в состояние "Выключено"
+  pinMode(DOOR, INPUT_PULLUP);
+  pinMode(WINDOW, INPUT_PULLUP);
 }
 void loop() {
 strip.setPixelColor(1, strip.Color(0,150,0)); // Назначаем для первого светодиода цвет "Зеленый"
