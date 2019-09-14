@@ -27,6 +27,17 @@
 
 #define count_led 42 // количество светодиодов 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(count_led, PIN, NEO_GRB + NEO_KHZ800); //first number change does distance between colors
+uint8_t  palette1[7][3] ={ //7 цветов по RGB
+  {0,0,0}, //black
+  {255,0,0}, //red сигнализирует о проблеме с объектом "дверь"
+  {0,255,0}, //green сигнализирует о "нормальном" состоянии объектов
+  {0,0,255}, //blue сигнализирует о проблеме с объектом "Окно"
+  {255,255,0}, //yellow
+  {255,0,255}, //magenta другой датчик
+  {255,255,255} //white
+};
+
+
 void setup() {
   strip.begin();
   strip.show(); // Устанавливаем все светодиоды в состояние "Выключено"
