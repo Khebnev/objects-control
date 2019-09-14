@@ -29,6 +29,7 @@
 
 #define count_led 42 // количество светодиодов 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(count_led, PIN, NEO_GRB + NEO_KHZ800); //first number change does distance between colors
+uint8_t i;  
 uint8_t  palette1[7][3] ={ //7 цветов по RGB
   {0,0,0}, //black
   {255,0,0}, //red сигнализирует о проблеме с объектом "дверь"
