@@ -19,9 +19,17 @@
       3V3    3.3V                   3.3V
       RST    Reset                  RST 
 ***************************************************************/
-void setup(void){
-  
+#include <Adafruit_NeoPixel.h>
+#define PIN 2 // номер порта к которому подключен модуль
+#define count_led 42 // количество светодиодов 
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(count_led, PIN, NEO_GRB + NEO_KHZ800); //first number change does distance between colors
+void setup() {
+  strip.begin();
+  strip.show(); // Устанавливаем все светодиоды в состояние "Выключено"
 }
 void loop() {
-  
+strip.setPixelColor(1, strip.Color(0,150,0)); // Назначаем для первого светодиода цвет "Зеленый"
+strip.setPixelColor(2, strip.Color(250,150,0)); // Назначаем для первого светодиода цвет "Зеленый"
+strip.setPixelColor(3, strip.Color(0,0,250)); // Назначаем для первого светодиода цвет "Синий"
+ strip.show();
 }
