@@ -21,20 +21,37 @@
 ***************************************************************/
 #include <Adafruit_NeoPixel.h>
 #define PIN 2 // номер порта к которому подключен модуль
-//#define DOOR 0 // Номер порта "датчика" двери
-//#define WINDOW 5 // Номер порта "датчика" окна
 #define FIRST_INPUT1_OUTPUT_LED  0
 #define LAST_INPUT1_OUTPUT_LED  6
 
+#define FIRST_INPUT2_OUTPUT_LED  6
+#define LAST_INPUT2_OUTPUT_LED 12
+/*
+#define FIRST_INPUT3_OUTPUT_LED  12
+#define LAST_INPUT3_OUTPUT_LED 17
+
+#define FIRST_INPUT4_OUTPUT_LED  18
+#define LAST_INPUT4_OUTPUT_LED 23
+
+#define FIRST_INPUT5_OUTPUT_LED  24
+#define LAST_INPUT5_OUTPUT_LED 29
+
+#define FIRST_INPUT6_OUTPUT_LED  30
+#define LAST_INPUT6_OUTPUT_LED 35
+
+#define FIRST_INPUT7_OUTPUT_LED  36
+#define LAST_INPUT7_OUTPUT_LED 41
+*/
 
 #define count_led 42 // количество светодиодов 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(count_led, PIN, NEO_GRB + NEO_KHZ800); //first number change does distance between colors
-uint8_t i;  
+uint8_t i; 
+uint8_t ii; 
 uint8_t  palette1[7][3] ={ //7 цветов по RGB
   {0,0,0}, //black
-  {255,0,0}, //red сигнализирует о проблеме с объектом "дверь"
-  {0,255,0}, //green сигнализирует о "нормальном" состоянии объектов
-  {0,0,255}, //blue сигнализирует о проблеме с объектом "Окно"
+  {255,0,0}, //red 
+  {0,255,0}, //green 
+  {0,0,255}, //blue 
   {255,255,0}, //yellow
   {255,0,255}, //magenta другой датчик
   {255,255,255} //white
@@ -45,15 +62,17 @@ void setup() {
   strip.begin();
   strip.clear();                          // очистить
   strip.show(); // Устанавливаем все светодиоды в состояние "Выключено"
-  //pinMode(DOOR, INPUT_PULLUP);
-  //pinMode(WINDOW, INPUT_PULLUP);
+  //pinMode(led1, INPUT_PULLUP);
+  //pinMode(led2, INPUT_PULLUP);
 }
 void loop() {
   for(int i = FIRST_INPUT1_OUTPUT_LED; i < LAST_INPUT1_OUTPUT_LED; i++)
     {
       strip.setPixelColor(i, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
-        if (digitalRead(i == 3))
+      delay(400); //to test 400 ms
+    }
+       /* if (digitalRead(i == 3))
         {
           strip.setPixelColor(3, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
         }
@@ -62,18 +81,22 @@ void loop() {
           strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2]));
         }
         strip.show();
-        delay(1000);
+        delay(500);
     }
     strip.show();
-    delay(1000);
+    delay(1000);*/
+  for(int ii = FIRST_INPUT2_OUTPUT_LED; ii < LAST_INPUT2_OUTPUT_LED; ii++)
+  {
+    strip.setPixelColor(ii, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
+      strip.show();
+      delay(200); to test 200 ms
+  }
 }
-    
-    
-   /* 
-    if (digitalRead(DOOR)) strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); //Проверим сигнал для двери
+  
+/*    if (digitalRead(led1)) strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); /
     else strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2]));
-    if (digitalRead(WINDOW)) strip.setPixelColor( 6, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2]));
+    if (digitalRead(led2)) strip.setPixelColor( 6, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2]));
     else strip.setPixelColor( 6, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2]));
     strip.show();                         // отправить на ленту
     delay(1000);
-}*/
+} */
