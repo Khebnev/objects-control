@@ -46,8 +46,10 @@ void setup() {
   pinMode(WINDOW, INPUT_PULLUP);
 }
 void loop() {
-strip.setPixelColor(1, strip.Color(0,150,0)); // Назначаем для первого светодиода цвет "Зеленый"
-strip.setPixelColor(2, strip.Color(250,150,0)); // Назначаем для первого светодиода цвет "Зеленый"
-strip.setPixelColor(3, strip.Color(0,0,250)); // Назначаем для первого светодиода цвет "Синий"
- strip.show();
+    if (digitalRead(DOOR)) strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); //Проверим сигнал для двери
+    else strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2]));
+    if (digitalRead(WINDOW)) strip.setPixelColor( 6, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2]));
+    else strip.setPixelColor( 6, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2]));
+    strip.show();                         // отправить на ленту
+    delay(1000);
 }
