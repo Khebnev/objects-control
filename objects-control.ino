@@ -21,8 +21,10 @@
 ***************************************************************/
 #include <Adafruit_NeoPixel.h>
 #define PIN 2 // номер порта к которому подключен модуль
-#define DOOR 0 // Номер порта "датчика" двери
-#define WINDOW 5 // Номер порта "датчика" окна
+//#define DOOR 0 // Номер порта "датчика" двери
+//#define WINDOW 5 // Номер порта "датчика" окна
+#define FIRST_INPUT1_OUTPUT_LED  0
+#define LAST_INPUT1_OUTPUT_LED  6
 
 
 #define count_led 42 // количество светодиодов 
@@ -42,14 +44,24 @@ void setup() {
   strip.begin();
   strip.clear();                          // очистить
   strip.show(); // Устанавливаем все светодиоды в состояние "Выключено"
-  pinMode(DOOR, INPUT_PULLUP);
-  pinMode(WINDOW, INPUT_PULLUP);
+  //pinMode(DOOR, INPUT_PULLUP);
+  //pinMode(WINDOW, INPUT_PULLUP);
 }
 void loop() {
+      for(int i = FIRST_INPUT1_OUTPUT_LED; i < LAST_INPUT1_OUTPUT_LED; i++)
+    {
+      strip.setPixelColor(i, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
+    }
+        strip.show();
+    delay(1000);
+}
+    
+    
+   /* 
     if (digitalRead(DOOR)) strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); //Проверим сигнал для двери
     else strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2]));
     if (digitalRead(WINDOW)) strip.setPixelColor( 6, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2]));
     else strip.setPixelColor( 6, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2]));
     strip.show();                         // отправить на ленту
     delay(1000);
-}
+}*/
