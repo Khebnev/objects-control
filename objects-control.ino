@@ -49,11 +49,22 @@ void setup() {
   //pinMode(WINDOW, INPUT_PULLUP);
 }
 void loop() {
-      for(int i = FIRST_INPUT1_OUTPUT_LED; i < LAST_INPUT1_OUTPUT_LED; i++)
+  for(int i = FIRST_INPUT1_OUTPUT_LED; i < LAST_INPUT1_OUTPUT_LED; i++)
     {
       strip.setPixelColor(i, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
-    }
+      strip.show();
+        if (digitalRead(i == 3))
+        {
+          strip.setPixelColor(3, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
+        }
+        else
+        {
+          strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2]));
+        }
         strip.show();
+        delay(1000);
+    }
+    strip.show();
     delay(1000);
 }
     
