@@ -72,7 +72,7 @@ void loop() {
   {
     strip.setPixelColor(room2, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
-      delay(300); //to test 200 ms
+      delay(300); //to test 300 ms
   }
 
   for(int room3 = FIRST_INPUT3_OUTPUT_LED; room3 < LAST_INPUT3_OUTPUT_LED; room3++)
@@ -86,28 +86,28 @@ void loop() {
   {
     strip.setPixelColor(room4, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
-      delay(100); //to test 200 ms
+      delay(100); //to test 100 ms
   }
   
   for(int room5 = FIRST_INPUT5_OUTPUT_LED; room5 < LAST_INPUT5_OUTPUT_LED; room5++)
   {
     strip.setPixelColor(room5, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
-      delay(70); //to test 200 ms
+      delay(70); //to test 70 ms
   }
 
   for(int room6 = FIRST_INPUT6_OUTPUT_LED; room6 < LAST_INPUT6_OUTPUT_LED; room6++)
   {
     strip.setPixelColor(room6, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
-      delay(50); //to test 200 ms
+      delay(50); //to test 50 ms
   }
   
   for(int room7 = FIRST_INPUT7_OUTPUT_LED; room7 < LAST_INPUT7_OUTPUT_LED; room7++)
   {
     strip.setPixelColor(room7, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
-      delay(20); //to test 200 ms
+      delay(20); //to test 20 ms
   }
 
 } //end loop
