@@ -21,6 +21,10 @@
 ***************************************************************/
 #include <Adafruit_NeoPixel.h>
 #define PIN 2 // номер порта к которому подключен модуль
+#define DOOR 0 // Номер порта "датчика" двери
+#define WINDOW 5 // Номер порта "датчика" окна
+
+
 #define count_led 42 // количество светодиодов 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(count_led, PIN, NEO_GRB + NEO_KHZ800); //first number change does distance between colors
 void setup() {
