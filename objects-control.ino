@@ -76,10 +76,12 @@ void loop() {
       strip.setPixelColor(room1, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
       delay(400); //to test 400 ms
-        if (digitalRead(room1 == 3))
+        if (digitalRead(room1 == 3)) 
         {
-          //strip.setPixelColor(3, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
-          strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2]));
+          //strip.setPixelColor(3, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2])); green
+          strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); //blue
+           //if I use (blue) color then led strip will show: Green (because of cycle) 
+           //then blue (because room1 == 3) and red (in case when pixel №3 has a signal.
         }
         else
         {
