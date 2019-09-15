@@ -81,30 +81,19 @@ void setup() {
     strip.show();
     delay(400); //to test 400 ms
   }
-}
-void loop() {
-  
-  alarmLineOne();
-
-  
-    //}
-    //strip.show();
-    //delay(1000);
-  /*for(int room2 = FIRST_INPUT2_OUTPUT_LED; room2 < LAST_INPUT2_OUTPUT_LED; room2++)
+  for(int room2 = FIRST_INPUT2_OUTPUT_LED; room2 < LAST_INPUT2_OUTPUT_LED; room2++)
   {
     strip.setPixelColor(room2, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
       delay(200); 
   }
-
-  for(int room3 = FIRST_INPUT3_OUTPUT_LED; room3 < LAST_INPUT3_OUTPUT_LED; room3++)
+     for(int room3 = FIRST_INPUT3_OUTPUT_LED; room3 < LAST_INPUT3_OUTPUT_LED; room3++)
   {
     strip.setPixelColor(room3, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
       delay(100); 
   }
-
-  for(int room4 = FIRST_INPUT4_OUTPUT_LED; room4 < LAST_INPUT4_OUTPUT_LED; room4++)
+    for(int room4 = FIRST_INPUT4_OUTPUT_LED; room4 < LAST_INPUT4_OUTPUT_LED; room4++)
   {
     strip.setPixelColor(room4, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
@@ -130,7 +119,21 @@ void loop() {
     strip.setPixelColor(room7, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
       delay(100); 
-  }*/
+  }
+}
+void loop() {
+  
+  alarmLineOne();
+
+  
+    //}
+    //strip.show();
+    //delay(1000);
+
+
+
+
+
 
 } //end loop
 
