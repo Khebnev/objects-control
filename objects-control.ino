@@ -22,7 +22,7 @@
 #include <Adafruit_NeoPixel.h>
 #define PIN 2 // номер порта к которому подключен модуль
 
-//const int interruptPin = 0; //GPIO 0 (Flash Button)
+const int interruptPin = 0; //GPIO 0 (Flash Button)
 
 #define FIRST_INPUT1_OUTPUT_LED  0
 #define LAST_INPUT1_OUTPUT_LED  6
@@ -70,37 +70,27 @@ void setup() {
   strip.begin();
   strip.clear();                          // очистить
   strip.show(); // Устанавливаем все светодиоды в состояние "Выключено"
- // pinMode(interruptPin, INPUT_PULLUP); 
- // attachInterrupt(digitalPinToInterrupt(interruptPin), alarmLineOne, CHANGE); 
+  pinMode( interruptPin, INPUT_PULLUP ); 
+  //attachInterrupt(digitalPinToInterrupt(PIN), alarmLineOne, CHANGE); 
+  //pinMode( PIN, INPUT ); 
   //pinMode(room1, INPUT_PULLUP);
 
-}
-void loop() {
-for(int room1 = FIRST_INPUT1_OUTPUT_LED; room1 < LAST_INPUT1_OUTPUT_LED; room1++)
+  for(int room1 = FIRST_INPUT1_OUTPUT_LED; room1 < LAST_INPUT1_OUTPUT_LED; room1++) // All leds from 0 to 5 on green, 400 ms gap between them
   {
-    if( room1 == 3 )
-    {
-      if( digitalRead(PIN) )
-      {
-        strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); //blue
-      }
-      else
-      {
-        strip.setPixelColor( 3, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2]));
-      }
-    }
-    else
-    {
-      strip.setPixelColor(room1, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));  
-    }
-    
+    strip.setPixelColor(room1, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));  
     strip.show();
     delay(400); //to test 400 ms
-   }
+  }
+}
+void loop() {
+  
+  alarmLineOne();
+
+  
     //}
     //strip.show();
     //delay(1000);
-  for(int room2 = FIRST_INPUT2_OUTPUT_LED; room2 < LAST_INPUT2_OUTPUT_LED; room2++)
+  /*for(int room2 = FIRST_INPUT2_OUTPUT_LED; room2 < LAST_INPUT2_OUTPUT_LED; room2++)
   {
     strip.setPixelColor(room2, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
@@ -140,27 +130,34 @@ for(int room1 = FIRST_INPUT1_OUTPUT_LED; room1 < LAST_INPUT1_OUTPUT_LED; room1++
     strip.setPixelColor(room7, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));
       strip.show();
       delay(100); 
-  }
+  }*/
 
 } //end loop
 
-/*void alarmLineOne(){
-      if( room1 == 3 )
-    {
-      if( digitalRead(PIN) )
-      {
-        strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); //blue
-      }
-      else
-      {
-        strip.setPixelColor( 3, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2]));
-      }
-    }
-    else
-    {
-      strip.setPixelColor(room1, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));  
-    }
-}*/
+void alarmLineOne()   // Switch the color of led #3 to blue if signal comes on pin "interruptPin", otherwise keeps green
+{
+  if( digitalRead(interruptPin) )
+  {
+    strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
+    //strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); // blue with signal activation
+  }
+  else
+  {
+    strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); // blue with signal activation
+    //strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
+  }
+
+  strip.show();
+  delay(500); 
+}
+
+
+    
+   // else
+   // {
+  //    strip.setPixelColor(room1, strip.Color(palette1[2][0], palette1[2][1], palette1[2][2]));  
+   // }
+//}
 
 /*    if (digitalRead(led1)) strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); /
     else strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2]));
