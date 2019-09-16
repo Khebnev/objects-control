@@ -22,7 +22,9 @@
 #include <Adafruit_NeoPixel.h>
 #define PIN 2 // номер порта к которому подключен модуль
 
-const int interruptPin = 0; //GPIO 0 (Flash Button)
+const int interruptPinOne = 0; //GPIO 0 (Flash Button)
+const int interruptPinTwo = 5; //GPIO 5 (Flash Button)
+const int interruptPinSix = 14; //GPIO 14 (Flash Button)
 
 #define FIRST_INPUT1_OUTPUT_LED  0
 #define LAST_INPUT1_OUTPUT_LED  6
@@ -70,7 +72,9 @@ void setup() {
   strip.begin();
   strip.clear();                          // очистить
   strip.show(); // Устанавливаем все светодиоды в состояние "Выключено"
-  pinMode( interruptPin, INPUT_PULLUP ); 
+  pinMode( interruptPinOne, INPUT_PULLUP ); 
+  pinMode( interruptPinTwo, INPUT_PULLUP ); 
+  pinMode( interruptPinSix, INPUT_PULLUP ); 
   //attachInterrupt(digitalPinToInterrupt(PIN), alarmLineOne, CHANGE); 
   //pinMode( PIN, INPUT ); 
   //pinMode(room1, INPUT_PULLUP);
@@ -124,7 +128,8 @@ void setup() {
 void loop() {
   
   alarmLineOne();
-
+  alarmLineTwo();
+  alarmLineSix();
   
     //}
     //strip.show();
@@ -139,7 +144,7 @@ void loop() {
 
 void alarmLineOne()   // Switch the color of led #3 to blue if signal comes on pin "interruptPin", otherwise keeps green
 {
-  if( digitalRead(interruptPin) )
+  if( digitalRead(interruptPinOne) )
   {
     strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
     //strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); // blue with signal activation
@@ -152,6 +157,30 @@ void alarmLineOne()   // Switch the color of led #3 to blue if signal comes on p
 
   strip.show();
   delay(500); 
+}
+
+void alarmLineTwo()
+{
+  if ( digitalRead(interruptPinTwo) )
+  {
+    strip.setPixelColor( 7, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
+  }
+  else
+  {
+    strip.setPixelColor( 7, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2])); // red with signal activation
+  }
+}
+
+void alarmLineSix()
+{
+  if ( digitalRead(interruptPinSix) )
+  {
+    strip.setPixelColor( 34, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
+  }
+  else
+  {
+    strip.setPixelColor( 34, strip.Color( palette1[5][0], palette1[5][1], palette1[5][2])); // red with signal activation
+  }
 }
 
 
