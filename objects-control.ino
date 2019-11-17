@@ -308,32 +308,119 @@ void loop() {
   Serial.println("Client disonnected");
 //    return;
 
-if (roomNum == 135)
+switch(roomNum)
   {
-    switch (roomState)
+  case 132:
     {
-      case 1:
-          strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
-        break;
-      case 2:
-          strip.setPixelColor( 3, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2])); // red
-        break;
-      case 3:
-          strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); // blue as default
-        break;
-      case 4:
-          strip.setPixelColor( 3, strip.Color( palette1[4][0], palette1[4][1], palette1[4][2])); // yellow as default
-        break;
-      case 5:
-          strip.setPixelColor( 3, strip.Color( palette1[5][0], palette1[5][1], palette1[5][2])); // magenta as default
-        break;
-      default:
-          strip.setPixelColor( 3, strip.Color( palette1[8][0], palette1[8][1], palette1[8][2])); // magenta as default
+     // if (roomState > 0 && roomState < 7)
+     // {
+        //strip.setPixelColor( 0, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // magenta as default
+        switch (roomState)
+         {
+            case 1:
+                strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
+              break;
+            case 2:
+                strip.setPixelColor( 3, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2])); // red
+              break;
+            case 3:
+                strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); // blue as default
+              break;
+            case 4:
+                strip.setPixelColor( 3, strip.Color( palette1[4][0], palette1[4][1], palette1[4][2])); // yellow as default
+              break;
+            case 5:
+                strip.setPixelColor( 3, strip.Color( palette1[5][0], palette1[5][1], palette1[5][2])); // magenta as default
+              break;
+            default:
+                strip.setPixelColor( 3, strip.Color( palette1[8][0], palette1[8][1], palette1[8][2])); // magenta as default
+         }
+    //  }
+      //else
+      //{
+      //  strip.setPixelColor( 0, strip.Color( palette1[7][0], palette1[7][1], palette1[7][2])); // magenta as default
+     // }
     }
-      strip.show();
-      delay(500); 
+         break;
+ case 133:
+    {
+      switch (roomState)
+      {
+        case 1:
+            strip.setPixelColor( 9, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
+          break;
+        case 2:
+            strip.setPixelColor( 9, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2])); // red
+          break;
+        case 3:
+            strip.setPixelColor( 9, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); // blue as default
+          break;
+        case 4:
+            strip.setPixelColor( 9, strip.Color( palette1[4][0], palette1[4][1], palette1[4][2])); // yellow as default
+          break;
+        case 5:
+            strip.setPixelColor( 9, strip.Color( palette1[5][0], palette1[5][1], palette1[5][2])); // magenta as default
+          break;
+        default:
+            strip.setPixelColor( 9, strip.Color( palette1[8][0], palette1[8][1], palette1[8][2])); // magenta as default
+      }
+    }
+       break;
+    case 134:
+    {
+      switch (roomState)
+      {
+        case 1:
+            strip.setPixelColor( 14, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
+          break;
+        case 2:
+            strip.setPixelColor( 14, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2])); // red
+          break;
+        case 3:
+            strip.setPixelColor( 14, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); // blue as default
+          break;
+        case 4:
+            strip.setPixelColor( 14, strip.Color( palette1[4][0], palette1[4][1], palette1[4][2])); // yellow as default
+          break;
+        case 5:
+            strip.setPixelColor( 14, strip.Color( palette1[5][0], palette1[5][1], palette1[5][2])); // magenta as default
+          break;
+        default:
+            strip.setPixelColor( 14, strip.Color( palette1[8][0], palette1[8][1], palette1[8][2])); // magenta as default
+      }
+    }
+      break;
+    case 135:
+    {
+      switch (roomState)
+      {
+        case 1:
+            strip.setPixelColor( 20, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
+          break;
+        case 2:
+            strip.setPixelColor( 20, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2])); // red
+          break;
+        case 3:
+            strip.setPixelColor( 20, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); // blue as default
+          break;
+        case 4:
+            strip.setPixelColor( 20, strip.Color( palette1[4][0], palette1[4][1], palette1[4][2])); // yellow as default
+          break;
+        case 5:
+            strip.setPixelColor( 20, strip.Color( palette1[5][0], palette1[5][1], palette1[5][2])); // magenta as default
+          break;
+        default:
+            strip.setPixelColor( 20, strip.Color( palette1[8][0], palette1[8][1], palette1[8][2])); // magenta as default
+      }
+    }
+    break;
+          //default:
+            //strip.setPixelColor( 0, strip.Color( palette1[7][0], palette1[7][1], palette1[7][2])); // magenta as default
   }
-}
+        strip.show();
+        delay(500); 
+  
+} //end loop
 
 /*
 if (roomNum == 135 && roomState == 1)
