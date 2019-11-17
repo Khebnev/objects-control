@@ -308,6 +308,34 @@ void loop() {
   Serial.println("Client disonnected");
 //    return;
 
+if (roomNum == 135)
+  {
+    switch (roomState)
+    {
+      case 1:
+          strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
+        break;
+      case 2:
+          strip.setPixelColor( 3, strip.Color( palette1[1][0], palette1[1][1], palette1[1][2])); // red
+        break;
+      case 3:
+          strip.setPixelColor( 3, strip.Color( palette1[3][0], palette1[3][1], palette1[3][2])); // blue as default
+        break;
+      case 4:
+          strip.setPixelColor( 3, strip.Color( palette1[4][0], palette1[4][1], palette1[4][2])); // yellow as default
+        break;
+      case 5:
+          strip.setPixelColor( 3, strip.Color( palette1[5][0], palette1[5][1], palette1[5][2])); // magenta as default
+        break;
+      default:
+          strip.setPixelColor( 3, strip.Color( palette1[8][0], palette1[8][1], palette1[8][2])); // magenta as default
+    }
+      strip.show();
+      delay(500); 
+  }
+}
+
+/*
 if (roomNum == 135 && roomState == 1)
   {
     strip.setPixelColor( 3, strip.Color( palette1[2][0], palette1[2][1], palette1[2][2])); // green as default
@@ -319,7 +347,7 @@ if (roomNum == 135 && roomState == 1)
   }
     strip.show();
     delay(500); 
-}
+}*/
 /*    
     
  // Prepare the response
